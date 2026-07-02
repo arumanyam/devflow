@@ -44,6 +44,7 @@ export class WebhookController {
     };
  
 
+    
     this.verifySignature(req.body, signature);
 
     const payload = req.body;
