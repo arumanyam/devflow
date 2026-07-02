@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DevFlow Dashboard</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; max-width: 900px; margin: 40px auto; color: #1a1a1a; }
+    .stats { display: flex; gap: 16px; margin-bottom: 32px; }
+    .stat { background: #f4f4f5; padding: 16px 24px; border-radius: 8px; }
+    .stat strong { display: block; font-size: 24px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
+    th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #e5e5e5; font-size: 14px; }
+    .risk-high { color: #dc2626; font-weight: 600; }
+    .risk-medium { color: #d97706; }
+    .risk-low { color: #16a34a; }
+    .status-closed, .status-merged { color: #9ca3af; }
+  </style>
+</head>
+<body>
+  <h1>DevFlow</h1>
+
+  <div class="stats">
+    <div class="stat"><strong>{{openCount}}</strong> Open Issues</div>
+    <div class="stat"><strong>{{blockedCount}}</strong> Blocked</div>
+    <div class="stat"><strong>{{highRiskPrCount}}</strong> High-Risk PRs</div>
+  </div>
+
+  <h2>Issues</h2>
+  <table>
+    <tr><th>#</th><th>Title</th><th>Status</th><th>Assignee</th></tr>
+    {{#each issues}}
+    <tr>
+      <td>{{this.number}}</td>
+      <td>{{this.title}}</td>
+      <td class="status-{{this.status}}">{{this.status}}</td>
+      <td>{{this.assignee}}</td>
+    </tr>
+    {{/each}}
+  </table>
+
+  <h2>Pull Requests</h2>
+  <table>
+    <tr><th>#</th><th>Title</th><th>Status</th><th>Risk</th><th>Summary</th></tr>
+    {{#each pullRequests}}
+    <tr>
+      <td>{{this.number}}</td>
+      <td>{{this.title}}</td>
+      <td class="status-{{this.status}}">{{this.status}}</td>
+      <td class="risk-{{this.riskFlag}}">{{this.riskFlag}}</td>
+      <td>{{this.diffSummary}}</td>
+    </tr>
+    {{/each}}
+  </table>
+
+  <h2>Recent Sync Activity</h2>
+  <table>
+    <tr><th>Source</th><th>Event</th><th>Status</th><th>Time</th></tr>
+    {{#each recentLogs}}
+    <tr>
+      <td>{{this.source}}</td>
+      <td>{{this.eventType}}</td>
+      <td>{{this.status}}</td>
+      <td>{{this.createdAt}}</td>
+    </tr>
+    {{/each}}
+  </table>
+</body>
+</html>

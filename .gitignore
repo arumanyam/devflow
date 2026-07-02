@@ -1,0 +1,28 @@
+# compiled output
+/dist
+/node_modules
+
+# logs
+logs
+*.log
+npm-debug.log*
+
+# env
+.env
+
+# SQLite
+prisma/dev.db
+prisma/*.db
+*.db
+ci-test.db
+
+# IDE
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# OS
+.DS_Store
+
+# test coverage
+/coverage
