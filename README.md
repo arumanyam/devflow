@@ -29,7 +29,7 @@ GitHub Actions runs lint/build/test on every PR.
 - Anthropic API (`@anthropic-ai/sdk`) for PR summarization
 - `@octokit/rest` for GitHub API access
 - Slack Incoming Webhook for notifications
-- GitHub Actions for CI (no Docker)
+- GitHub Actions for CI
 - Deploys to Railway or Render as a plain Node app
 
 ## Prerequisites
@@ -74,10 +74,10 @@ the same secret as `GITHUB_WEBHOOK_SECRET`.
 | `npm run test:e2e` | Run e2e tests |
 | `npm run prisma:studio` | Open Prisma's DB browser UI |
 
-## Deployment (no Docker)
+## Deployment
 
 Both Railway and Render support deploying Node apps directly from a GitHub
-repo without a Dockerfile — they detect `package.json` and run
+repo — they detect `package.json` and run
 `npm install && npm run build && npm run start:prod` automatically. Set the
 same environment variables from `.env.example` in their dashboard.
 
