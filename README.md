@@ -3,7 +3,7 @@
 An AI-orchestrated release/PR coordinator. Syncs GitHub issues and pull
 requests into a local database, uses Claude to summarize PR diffs and flag
 risk, and posts notifications to Slack — with a small dashboard to view it
-all. Built with NestJS + Prisma + SQLite. No Docker required.
+all. Built with NestJS + Prisma + SQLite.
 
 ## Architecture
 
