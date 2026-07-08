@@ -81,8 +81,4 @@ repo — they detect `package.json` and run
 `npm install && npm run build && npm run start:prod` automatically. Set the
 same environment variables from `.env.example` in their dashboard.
 
-## AI-assisted development log
 
-See [`docs/ai-workflow-log.md`](./docs/ai-workflow-log.md) for a record of
-how Claude Code was used to build this project — prompts given, diffs
-produced, and review decisions made before merging.
